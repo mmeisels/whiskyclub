@@ -1,5 +1,5 @@
 {
-  "name": "whiskyclub jobs 1",
+  "name": "whiskyclub jobs 2",
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
   },
