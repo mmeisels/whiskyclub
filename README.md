@@ -1,4 +1,5 @@
-fullcalendar_and_rails_example
-==============================
+Whisky Club
+===========
 
-An example about how to integrate FulllCalendar and Ruby on Rails using jbuilder
+
+Whisky club app
