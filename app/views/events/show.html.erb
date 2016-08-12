@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<%
+if @event.title=='' || @event.title==nil || @event.title=='Open'
+%>
+<center><p id="notice">We currently have no sponsor... would you be willing to help us?</p></center>
+<p>
+
+<p>
+  <%= link_to 'Click to become our Sponsor', edit_event_path(@event) %> 
+<%= @event.title %>
+</p>
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+<%
+else
+%>
+<p>
+  <strong>Sponsor:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+<%end%>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', '../events#index' %>
