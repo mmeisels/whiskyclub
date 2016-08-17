@@ -156,16 +156,24 @@
 						<div class="filters text-center">
 							<ul class="nav nav-pills">
 								<li class="active"><a href="#" data-filter="*">All</a></li>
-								<li><a href="#" data-filter=".web-design">Open Dates</a></li>
-								<li><a href="#" data-filter=".app-development">Sponsored Dates</a></li>
-								<li><a href="#" data-filter=".site-building">Past Dates</a></li>
+								<li><a href="#" data-filter=".open-dates">Open Dates</a></li>
+								<li><a href="#" data-filter=".sponsor-dates">Sponsored Dates</a></li>
+								<li><a href="#" data-filter=".past-dates">Past Dates</a></li>
 							</ul>
 						</div>
 						<!-- isotope filters end -->
             <% Event.all.each do |e1| %>
             <!-- calendar items start -->
             <div class="isotope-container row grid-space-20">
-              <div class="col-sm-6 col-md-3 isotope-item web-design">
+              <% if e1.title == "Open" %>
+                <div class="col-sm-6 col-md-3 isotope-item open-dates">
+              <% elsif e1.start_time > time.now %>
+                <div class="col-sm-6 col-md-3 isotope-item sponsor-dates">
+              <% elsif e1.start_time > time.now %>
+                <div class="col-sm-6 col-md-3 isotope-item past-dates">
+              <% else %>
+                <div class="col-sm-6 col-md-3 isotope-item past-dates">
+              <% end %>
                 <div class="image-box">
                   <div class="overlay-container">
                     <img src="images/portfolio-1.jpg" alt="">
