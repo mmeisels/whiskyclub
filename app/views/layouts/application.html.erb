@@ -167,7 +167,7 @@
             <div class="isotope-container row grid-space-20">
               <% if e1.title == "Open" %>
                 <div class="col-sm-6 col-md-3 isotope-item open-dates">
-              <% elsif e1.start_time > Date.today %>
+              <% elsif e1.start_time > Date.today && e1.title != "Open" %>
                 <div class="col-sm-6 col-md-3 isotope-item sponsor-dates">
               <% elsif e1.start_time < Date.today %>
                 <div class="col-sm-6 col-md-3 isotope-item past-dates">
