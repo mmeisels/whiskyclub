@@ -8,7 +8,7 @@ gem 'rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-gem 'delayed_job_active_record'
+gem 'resque'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 
