@@ -161,10 +161,10 @@
 								<li><a href="#" data-filter=".past-dates">Past Dates</a></li>
 							</ul>
 						</div>
-						<!-- isotope filters end -->
-            <% Event.all.each do |e1| %>
-            <!-- calendar items start -->
+						<!-- calendar items start -->
             <div class="isotope-container row grid-space-20">
+              <!-- isotope filters end -->
+              <% Event.all.each do |e1| %>
               <% if e1.title == "Open" %>
                 <div class="col-sm-6 col-md-3 isotope-item open-dates">
               <% elsif e1.start_time > Date.today && e1.title != "Open" %>
@@ -211,9 +211,10 @@
                     </div>
                   </div>
                 </div>
+                <% end %>
                 <!-- Modal end -->
               </div>
-            <% end %>
+
 						</div>
 						<!-- calendar items end -->
 
