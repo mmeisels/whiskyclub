@@ -89,8 +89,12 @@
                   <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#banner">Home</a></li>
                     <li><a href="#calendar">Calendar</a></li>
-                    <li><a href="#clients">Clients</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#clients">Leaderboard</a></li>
+                    <%=if current_user%>
+                      <li><a href="#contact">Logout</a></li>
+                      <li>Welcome, <%=current_user%></li>
+                    <%=else%>
+                      <li><a href="#contact">Login</a></li>
                   </ul>
                 </div>
 
