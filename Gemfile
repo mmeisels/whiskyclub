@@ -38,7 +38,7 @@ end
 
 group :development do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sqlite3'
+  gem 'pg'
 end
 
 group :production do
