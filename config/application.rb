@@ -23,6 +23,10 @@ module FullcalendarAndRailsExample
     config.assets.compress = true
     config.assets.compile = false
     config.assets.digest = true
-    
+    client = Restforce.new :oauth_token => current_user.oauth_token,
+      :refresh_token => current_user.refresh_token,
+      :instance_url  => current_user.instance_url,
+      :client_id     => 'YOUR-CONSUMER-KEY',
+      :client_secret => 'YOUR-CONSUMER-SECRET'
   end
 end

@@ -1,321 +1,237 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>KM Whisky Club</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <!-- Mobile Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.ico">
-
-  <!-- Web Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
-
-  <!-- Bootstrap core CSS -->
-  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-  <!-- Font Awesome CSS -->
-  <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-  <!-- Plugins -->
-  <link href="css/animations.css" rel="stylesheet">
-
-  <!-- Worthy core CSS file -->
-  <link href="css/style.css" rel="stylesheet">
-
-  <!-- Custom css -->
-  <link href="css/custom.css" rel="stylesheet">
-  <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-</head>
-<body class="no-trans">
-<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
-<!-- header start -->
-<!-- ================ -->
-<header class="header fixed clearfix navbar navbar-fixed-top">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-
-        <!-- header-left start -->
-        <!-- ================ -->
-        <div class="header-left clearfix">
-
-          <!-- logo -->
-          <div class="logo smooth-scroll">
-            <a href="#banner"><img id="logo" src="images/logo.png" alt="Whisky Club"></a>
-          </div>
-
-          <!-- name-and-slogan -->
-          <div class="site-name-and-slogan smooth-scroll">
-            <div class="site-name"><a href="#banner">Whisky Club Page</a></div>
-            <div class="site-slogan"><a target="_blank" href="http://whiskyclub.herokuapp.com">Whisky Club</a></div>
-          </div>
-
-        </div>
-        <!-- header-left end -->
-
-      </div>
-      <div class="col-md-8">
-
-        <!-- header-right start -->
-        <!-- ================ -->
-        <div class="header-right clearfix">
-
-          <!-- main-navigation start -->
-          <!-- ================ -->
-          <div class="main-navigation animated">
-
-            <!-- navbar start -->
-            <!-- ================ -->
-            <nav class="navbar navbar-default" role="navigation">
-              <div class="container-fluid">
-
-                <!-- Toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#banner">Home</a></li>
-                    <li><a href="#calendar">Calendar</a></li>
-                    <li><a href="#clients">Clients</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                  </ul>
-                </div>
-
-              </div>
-            </nav>
-            <!-- navbar end -->
-
-          </div>
-          <!-- main-navigation end -->
-
-        </div>
-        <!-- header-right end -->
-
-      </div>
-    </div>
-  </div>
-</header>
-
-		<!-- banner start -->
-		<!-- ================ -->
-		<div id="banner" class="banner">
-			<div class="banner-image"></div>
-			<div class="banner-caption">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h1 class="text-center">Whisky <span>Club</span></h1>
-							<p class="lead text-center">The heros of our whisky club</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- banner end -->
-
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="default-bg space blue">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">Sponsor Us With a Whisky</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="section">
-			<div class="container">
-				<h1 class="text-center title" id="calendar">Whisky Sponsorship</h1>
-				<div class="separator"></div>
-				<p class="lead text-center">Whisky sponsorhsip dates</p>
-				<br>
-				<div class="row object-non-visible" data-animation-effect="fadeIn">
-					<div class="col-md-12">
-
-						<!-- isotope filters start -->
-						<div class="filters text-center">
-							<ul class="nav nav-pills">
-								<li class="active"><a href="#" data-filter="*">All</a></li>
-								<li><a href="#" data-filter=".open-dates">Open Dates</a></li>
-								<li><a href="#" data-filter=".sponsor-dates">Sponsored Dates</a></li>
-								<li><a href="#" data-filter=".past-dates">Past Dates</a></li>
-							</ul>
-						</div>
-            <!-- isotope filters end -->
-
-						<!-- portfolio items start -->
-						<div class="isotope-container row grid-space-20">
-							<% Event.all.each do |e1| %>
-              <% if e1.title == "Open" %>
-                <div class="col-sm-6 col-md-3 isotope-item open-dates">
-              <% elsif e1.start_time > Date.today && e1.title != "Open" %>
-                <div class="col-sm-6 col-md-3 isotope-item sponsor-dates">
-              <% elsif e1.start_time < Date.today && e1.title != "Open" %>
-                <div class="col-sm-6 col-md-3 isotope-item past-dates">
-              <% else %>
-                <div class="col-sm-6 col-md-3 isotope-item past-dates">
-              <% end %>
-	             <div class="image-box">
-									<div class="overlay-container">
-										<img src="images/portfolio-1.jpg" alt="">
-										<a class="overlay" data-toggle="modal" data-target="#project-1">
-											<i class="fa fa-search-plus"></i>
-											<span>Sponsorship Details</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-1">MIKE</a>
-								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-1" tabindex="-1" role="dialog" aria-labelledby="project-1-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-1-label"><% e1.title %></h4>
-											</div>
-											<div class="modal-body">
-												<h3>Project Description</h3>
-												<div class="row">
-													<div class="col-md-6">
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
-														<p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>
-													</div>
-													<div class="col-md-6">
-														<img src="images/portfolio-1.jpg" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal end -->
-							</div>
-              <% end %>
-            	<div class="col-sm-6 col-md-3 isotope-item app-development">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/portfolio-2.jpg" alt="">
-										<a class="overlay" data-toggle="modal" data-target="#project-2">
-											<i class="fa fa-search-plus"></i>
-											<span>App Development</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-2">Project Title</a>
-								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-2" tabindex="-1" role="dialog" aria-labelledby="project-2-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-2-label">Project Title</h4>
-											</div>
-											<div class="modal-body">
-												<h3>Project Description</h3>
-												<div class="row">
-													<div class="col-md-6">
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
-														<p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>
-													</div>
-													<div class="col-md-6">
-														<img src="images/portfolio-2.jpg" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal end -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    <!-- isotope filters end -->
-
-
-		<!-- section end -->
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="default-bg space">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">1000+ Happy Drinkers</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-
-			<!-- .subfooter start -->
-			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center"><a target="_blank" href="http://whiskyclub.herokuapp.com">Whisky Club</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- .subfooter end -->
-
-		</footer>
-		<!-- footer end -->
-
-		<!-- JavaScript files placed at the end of the document so the pages load faster
-		================================================== -->
-		<!-- Jquery and Bootstap core js files -->
-		<script type="text/javascript" src="plugins/jquery.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
-		<!-- Modernizr javascript -->
-		<script type="text/javascript" src="plugins/modernizr.js"></script>
-
-		<!-- Isotope javascript -->
-		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
-
-		<!-- Backstretch javascript -->
-		<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
-
-		<!-- Appear javascript -->
-		<script type="text/javascript" src="plugins/jquery.appear.js"></script>
-
-		<!-- Initialization of Plugins -->
-		<script type="text/javascript" src="js/template.js"></script>
-
-		<!-- Custom Scripts -->
-		<script type="text/javascript" src="js/custom.js"></script>
-
-	</body>
-</body>
-</html>
+doctype html
+html
+  head
+    title KM Whisky Club
+    | <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %
+    | <%= csrf_meta_tags %
+    /! Mobile Meta
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    /! Favicon
+    link href="images/favicon.ico" rel=("shortcut icon") /
+    /! Web Fonts
+    link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" /
+    link href="https://fonts.googleapis.com/css?family=Raleway:700,400,300" rel="stylesheet" type="text/css" /
+    /! Bootstrap core CSS
+    link href="bootstrap/css/bootstrap.css" rel="stylesheet" /
+    /! Font Awesome CSS
+    link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" /
+    /! Plugins
+    link href="css/animations.css" rel="stylesheet" /
+    /! Worthy core CSS file
+    link href="css/style.css" rel="stylesheet" /
+    /! Custom css
+    link href="css/custom.css" rel="stylesheet" /
+    /! Fonts
+    link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css" /
+  body.no-trans
+    .scrollToTop
+      i.icon-up-open-big
+    /! header start
+    /! ================
+    header.header.fixed.clearfix.navbar.navbar-fixed-top
+      .container
+        .row
+          .col-md-4
+            /! header-left start
+            /! ================
+            .header-left.clearfix
+              /! logo
+              .logo.smooth-scroll
+                a href="#banner"
+                  img#logo alt=("Whisky Club") src="images/logo.png" /
+              /! name-and-slogan
+              .site-name-and-slogan.smooth-scroll
+                .site-name
+                  a href="#banner"  Whisky Club Page
+                .site-slogan
+                  a href="http://whiskyclub.herokuapp.com" target="_blank"  Whisky Club
+            /! header-left end
+          .col-md-8
+            /! header-right start
+            /! ================
+            .header-right.clearfix
+              /! main-navigation start
+              /! ================
+              .main-navigation.animated
+                /! navbar start
+                /! ================
+                nav.navbar.navbar-default role="navigation"
+                  .container-fluid
+                    /! Toggle get grouped for better mobile display
+                    .navbar-header
+                      button.navbar-toggle data-target="#navbar-collapse-1" data-toggle="collapse" type="button"
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    /! Collect the nav links, forms, and other content for toggling
+                    #navbar-collapse-1.collapse.navbar-collapse.scrollspy.smooth-scroll
+                      ul.nav.navbar-nav.navbar-right
+                        li.active
+                          a href="#banner"  Home
+                        li
+                          a href="#calendar"  Calendar
+                        li
+                          a href="#clients"  Clients
+                        li
+                          a href="#contact"  Contact
+                        li
+                          - if current_user
+                            p Welcome #{current_user.name}
+                          - else
+                            = link_to "Sign in with Salesforce", "/auth/salesforce", id: "sign_in"
+                /! navbar end
+              /! main-navigation end
+            /! header-right end
+    /! banner start
+    /! ================
+    #banner.banner
+      .banner-image
+      .banner-caption
+        .container
+          .row
+            .col-md-8.col-md-offset-2.object-non-visible data-animation-effect="fadeIn"
+              h1.text-center
+                | Whisky
+                span Club
+              p.lead.text-center The heros of our whisky club
+    /! banner end
+    /! section start
+    /! ================
+    .default-bg.space.blue
+      .container
+        .row
+          .col-md-8.col-md-offset-2
+            h1.text-center Sponsor Us With a Whisky
+    /! section end
+    /! section start
+    /! ================
+    .section
+      .container
+        h1#calendar.text-center.title Whisky Sponsorship
+        .separator
+        p.lead.text-center Whisky sponsorhsip dates
+        br/
+        .row.object-non-visible data-animation-effect="fadeIn"
+          .col-md-12
+            /! isotope filters start
+            .filters.text-center
+              ul.nav.nav-pills
+                li.active
+                  a data-filter="*" href="#"  All
+                li
+                  a data-filter=".open-dates" href="#"  Open Dates
+                li
+                  a data-filter=".sponsor-dates" href="#"  Sponsored Dates
+                li
+                  a data-filter=".past-dates" href="#"  Past Dates
+            /! isotope filters end
+            /! portfolio items start
+            .isotope-container.row.grid-space-20
+              | <% Event.all.each do |e1| %
+              | <% if e1.title == "Open" %
+              .col-sm-6.col-md-3.isotope-item.open-dates
+                | <% elsif e1.start_time > Date.today && e1.title != "Open" %
+                .col-sm-6.col-md-3.isotope-item.sponsor-dates
+                  | <% elsif e1.start_time < Date.today && e1.title != "Open" %
+                  .col-sm-6.col-md-3.isotope-item.past-dates
+                    | <% else %
+                    .col-sm-6.col-md-3.isotope-item.past-dates
+                      | <% end %
+                      .image-box
+                        .overlay-container
+                          img alt="" src="images/portfolio-1.jpg" /
+                          a.overlay data-target="#project-1" data-toggle="modal"
+                            i.fa.fa-search-plus
+                            span Sponsorship Details
+                        a.btn.btn-default.btn-block data-target="#project-1" data-toggle="modal"
+                          | <%= e1.title %
+                          br>/
+                          | <%= e1.start_time %
+                      /! Modal
+                      #project-1.modal.fade aria-hidden="true" aria-labelledby="project-1-label" role="dialog" tabindex="-1"
+                        .modal-dialog.modal-lg
+                          .modal-content
+                            .modal-header
+                              button.close data-dismiss="modal" type="button"
+                                span aria-hidden="true"  &times;
+                                span.sr-only Close
+                              h4#project-1-label.modal-title <% e1.title %
+                            .modal-body
+                              h3 Project Description
+                              .row
+                                .col-md-6
+                                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.
+                                  p Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.
+                                .col-md-6
+                                  img alt="" src="images/portfolio-1.jpg" /
+                            .modal-footer
+                              button.btn.btn-sm.btn-default data-dismiss="modal" type="button"  Close
+                      /! Modal end
+                    | <% end %
+                    .col-sm-6.col-md-3.isotope-item.app-development
+                      .image-box
+                        .overlay-container
+                          img alt="" src="images/portfolio-2.jpg" /
+                          a.overlay data-target="#project-2" data-toggle="modal"
+                            i.fa.fa-search-plus
+                            span App Development
+                        a.btn.btn-default.btn-block data-target="#project-2" data-toggle="modal"  Project Title
+                      /! Modal
+                      #project-2.modal.fade aria-hidden="true" aria-labelledby="project-2-label" role="dialog" tabindex="-1"
+                        .modal-dialog.modal-lg
+                          .modal-content
+                            .modal-header
+                              button.close data-dismiss="modal" type="button"
+                                span aria-hidden="true"  &times;
+                                span.sr-only Close
+                              h4#project-2-label.modal-title Project Title
+                            .modal-body
+                              h3 Project Description
+                              .row
+                                .col-md-6
+                                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.
+                                  p Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.
+                                .col-md-6
+                                  img alt="" src="images/portfolio-2.jpg" /
+                            .modal-footer
+                              button.btn.btn-sm.btn-default data-dismiss="modal" type="button"  Close
+                      /! Modal end
+          /! isotope filters end
+          /! section end
+          /! section start
+          /! ================
+          .default-bg.space
+            .container
+              .row
+                .col-md-8.col-md-offset-2
+                  h1.text-center 1000+ Happy Drinkers
+          /! section end
+          /! .subfooter start
+          /! ================
+          .subfooter
+            .container
+              .row
+                .col-md-12
+                  p.text-center
+                    a href="http://whiskyclub.herokuapp.com" target="_blank"  Whisky Club
+          /! .subfooter end
+          /! footer end
+          /!
+            | JavaScript files placed at the end of the document so the pages load faster
+            | \==================================================
+          /! Jquery and Bootstap core js files
+          script src="plugins/jquery.min.js" type="text/javascript"
+          script src="bootstrap/js/bootstrap.min.js" type="text/javascript"
+          /! Modernizr javascript
+          script src="plugins/modernizr.js" type="text/javascript"
+          /! Isotope javascript
+          script src="plugins/isotope/isotope.pkgd.min.js" type="text/javascript"
+          /! Backstretch javascript
+          script src="plugins/jquery.backstretch.min.js" type="text/javascript"
+          /! Appear javascript
+          script src="plugins/jquery.appear.js" type="text/javascript"
+          /! Initialization of Plugins
+          script src="js/template.js" type="text/javascript"
+          /! Custom Scripts
+          script src="js/custom.js" type="text/javascript"
