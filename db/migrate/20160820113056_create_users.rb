@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :oauth_token
       t.string :refresh_token
       t.string :instance_url
-
       t.timestamps
     end
   end
