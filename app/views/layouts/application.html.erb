@@ -75,11 +75,7 @@ html
                           a href="#clients"  Clients
                         li
                           a href="#contact"  Contact
-                        li
-                          - if current_user
-                            p Welcome #{current_user.name}
-                          - else
-                            = link_to "Sign in with Salesforce", "/auth/salesforce", id: "sign_in"
+                        
                 /! navbar end
               /! main-navigation end
             /! header-right end
