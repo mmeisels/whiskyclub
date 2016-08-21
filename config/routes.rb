@@ -3,7 +3,6 @@ FullcalendarAndRailsExample::Application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  get "/auth/:provider/callback", to: "sessions#create"
   root 'events#index'
   resources :events
 
