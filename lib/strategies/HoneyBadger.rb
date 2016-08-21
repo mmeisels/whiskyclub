@@ -4,7 +4,8 @@ require 'base64'
 
 module OmniAuth
   module Strategies
-    class HoneyBadger < OmniAuth::Strategy
+    class HoneyBadger
+      include OmniAuth::Strategy
 
       MOBILE_USER_AGENTS =  'webos|ipod|iphone|ipad|android|blackberry|mobile'
 
