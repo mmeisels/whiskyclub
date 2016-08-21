@@ -23,7 +23,7 @@ module FullcalendarAndRailsExample
     config.assets.compress = true
     config.assets.compile = false
     config.assets.digest = true
-    config.salesforce_app_id = '3MVG9ZL0ppGP5UrD7bdKrIeH_G_64yXIvEQrx9A5zipjUR511v1wyoXeXVFzC6CmNz5J1yo7leIlg0YsvUSEb'
-    config.salesforce_app_secret = '7262647769079254117'
+    config.salesforce_app_id = '3MVG9ZL0ppGP5UrAFy7A32lMapJzKO46MWaHAfUWdAkTtbzBHUdzHM_2huas8TKvTgqrrteyp_LePstUkII16'
+    config.salesforce_app_secret = '6047125830660033399'
   end
 end
