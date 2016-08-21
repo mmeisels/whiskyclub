@@ -4,7 +4,7 @@ require 'base64'
 
 module OmniAuth
   module Strategies
-    class SalesforceCommunity include OmniAuth::Strategies
+    class HoneyBadger include OmniAuth::Strategies
 
       MOBILE_USER_AGENTS =  'webos|ipod|iphone|ipad|android|blackberry|mobile'
 
@@ -83,21 +83,7 @@ module OmniAuth
 
     end
 
-    class SalesforceCommunity < OmniAuth::Strategies::SalesforceCommunity
-      default_options[:client_options][:site] = 'https://test.salesforce.com'
-    end
 
-    class SalesforceSandbox < OmniAuth::Strategies::SalesforceCommunity
-      default_options[:client_options][:site] = 'https://test.salesforce.com'
-    end
-
-    class DatabaseDotCom < OmniAuth::Strategies::SalesforceCommunity
-      default_options[:client_options][:site] = 'https://login.database.com'
-    end
-
-    class SalesforcePreRelease < OmniAuth::Strategies::SalesforceCommunity
-      default_options[:client_options][:site] = 'https://prerellogin.pre.salesforce.com/'
-    end
 
   end
 end
