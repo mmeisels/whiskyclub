@@ -170,6 +170,8 @@ DEPENDENCIES
   fullcalendar-rails
   jbuilder (~> 1.2)
   jquery-rails
+  omniauth
+  omniauth-oauth2
   omniauth-salesforce
   pg
   rails
