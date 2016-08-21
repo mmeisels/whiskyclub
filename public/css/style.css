@@ -126,7 +126,8 @@ blockquote {
 	vertical-align: middle;
 	min-height: 100%;
 	width: 100%;
-	opacity: 0.4;
+	opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 .banner:after {
 	position: absolute;
