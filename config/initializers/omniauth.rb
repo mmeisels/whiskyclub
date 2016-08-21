@@ -2,7 +2,7 @@ OmniAuth.config.logger = Rails.logger
 module OmniAuth
   module Strategies
     # tell OmniAuth to load our strategy
-    autoload :SalesforceCommunity, 'lib/omniauth/salesforcecommunity'
+    autoload :SalesforceCommunity, 'lib/omniauth/strategies/salesforcecommunity'
   end
 end
 Rails.application.config.middleware.use OmniAuth::Builder do

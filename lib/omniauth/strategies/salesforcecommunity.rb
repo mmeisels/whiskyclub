@@ -1,10 +1,10 @@
-require 'omniauth-oauth2'
+require 'omniauth'
 require 'openssl'
 require 'base64'
 
 module OmniAuth
   module Strategies
-    class SalesforceCommunity < OmniAuth::Strategies::OAuth2
+    class SalesforceCommunity < OmniAuth::Strategy
 
       MOBILE_USER_AGENTS =  'webos|ipod|iphone|ipad|android|blackberry|mobile'
 
