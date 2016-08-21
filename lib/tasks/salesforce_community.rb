@@ -2,30 +2,42 @@ require 'omniauth'
 
 module OmniAuth
   module Strategies
-    class SalesforceCommunity
-      include OmniAuth::Strategy
+    class SalesforceCommunity < OmniAuth::Strategies:OAuth
 
-      args [:authentication_url]
 
-      def request_phase
-        response = Rack::Response.new
-        response.redirect "#{options.authentication_url}?redir=#{full_host + script_name + callback_path}"
-        response.finish
+      def initialize(app, consumer_key = nil, consumer_secret = nil, options = {}, &block)
+        opts = {
+          :site               => "http://test.salesforce.com",
+          :request_token_path => "/oauth/request_token",
+          :access_token_path  => "/oauth/access_token",
+          :authorize_url      => "https://test.salesforce.com/oauth/authorize"
+        }
+        super(app, :SalesforceCommunity, consumer_key, consumer_secret, opts, options, &block)
       end
 
-      def callback_phase
-        request = Rack::Request.new env
-        cookies = request.cookies
-        response = Rack::Response.new
 
-        if cookies['salesforce_community'] != nil
-          # code to set a devise/warden or some other local login session
-          response.redirect some_application_url
-          response.finish
-        else
-          response.status = 401
-          response.finish
-        end
+      def auth_hash
+        OmniAuth::Utils.deep_merge(super, {
+          'uid'       => user_hash['key'],
+          'user_info' => user_info,
+          'extra'     => { 'user_hash' => user_hash }
+        })
+      end
+
+      def user_info
+        user = user_hash
+        {
+          'first_name' => user['firstName'],
+          'last_name'  => user['lastName'],
+          'name'       => "#{user['firstName']} #{user['lastName']}"
+        }
+      end
+
+      def user_hash
+        @user_hash ||= MultiJson.decode(@access_token.post("http://api.rdio.com/1/", {
+          :method => 'currentUser',
+          :extras => 'username'
+        }).body)['result']
       end
 
     end

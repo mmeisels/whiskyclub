@@ -4,6 +4,5 @@ module Strategies
 end
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :SalesforceCommunity, 'https://test.salesforce.com'
-  ##provider :salesforce, Rails.application.config.salesforce_app_id, Rails.application.config.salesforce_app_secret
+  provider :SalesforceCommunity, Rails.application.config.salesforce_app_id, Rails.application.config.salesforce_app_secret,'https://whiskyclub-pr-2.herokuapp.com/auth/salesforce/callback'
 end
