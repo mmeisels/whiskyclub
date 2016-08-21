@@ -2,7 +2,7 @@ OmniAuth.config.logger = Rails.logger
 module OmniAuth
   module Strategies
     # tell OmniAuth to load our strategy
-    autoload :HoneyBadger, Rails.root.join('lib','omniauth', 'strategies', 'salesforcecommunity')
+    autoload :HoneyBadger, Rails.root.join('lib','omniauth', 'strategies', 'HoneyBadger')
   end
 end
 Rails.application.config.middleware.use OmniAuth::Builder do
