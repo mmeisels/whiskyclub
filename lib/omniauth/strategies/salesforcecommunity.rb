@@ -1,4 +1,4 @@
-require 'omniauth-oauth2'
+require 'omniauth'
 require 'openssl'
 require 'base64'
 
