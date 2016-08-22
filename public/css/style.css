@@ -707,7 +707,7 @@ textarea {
 }
 .overlay-container:hover .overlay {
 	opacity: 1;
-	filter: alpha(opacity=100);
+	filter: alpha(opacity=0.5);
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }

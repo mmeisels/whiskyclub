@@ -1,3 +1,4 @@
+
 body {
 	font-family: 'Open Sans', sans-serif;
 }
@@ -123,9 +124,10 @@ blockquote {
 }
 .banner-image {
 	vertical-align: middle;
-	min-height: 40%;
-	width: 40%;
-	opacity: 1;
+	min-height: 100%;
+	width: 100%;
+	opacity: 0.3;
+  filter: alpha(opacity=50);
 }
 .banner:after {
 	position: absolute;
@@ -134,12 +136,13 @@ blockquote {
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.55);
-	content: "";
+	opacity: 0.3;
+  content: "";
 }
 .banner-caption {
 	position: absolute;
 	top: 40%;
-	width: 10%;
+	width: 100%;
 	z-index: 2;
 }
 .subfooter {
@@ -704,7 +707,7 @@ textarea {
 }
 .overlay-container:hover .overlay {
 	opacity: 1;
-	filter: alpha(opacity=100);
+	filter: alpha(opacity=0.5);
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
