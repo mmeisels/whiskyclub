@@ -276,19 +276,16 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<h1 class="text-center">Drinkers Leaderboard</h1>
-            <ul class="no-bullet" id="rankings">
-            </ul>
-            <div>app/views/leaderboard/_rankings.html.haml</div>
-              <% @ranked_users.each do |user|  %>
-              <li class="row" data-rank="<%= user.rank %>" data-user-id="<%= user.id %>" data-value="<%= user.ranked_attribute %>">
-                <%= user.name %>
-                <%= user.rank %>
-              </li>
-            <% end %>
-<% if @ranked_users.length < @limit  %>
-  $("<%= @target%>").append("<li class='row'>That's everbody!</li>");
-  $("#show_more_leaderboard").hide();
-<% end %>
+            <div class="col-md-8">
+              <% if @user.events.any? %>
+                <h3>Events (<%= @user.events.count %>)</h3>
+                <ol class="events">
+                  <%= render @events %>
+                </ol>
+                <%= will_paginate @events %>
+              <% end %>
+            </div>
+
 					</div>
 				</div>
 			</div>
@@ -321,9 +318,7 @@
 		<!-- Modernizr javascript -->
 		<script type="text/javascript" src="plugins/modernizr.js"></script>
     <!-- Modernizr javascript -->
-    <script type="text/javascript" src="javascripts/leaderboard.js"></script>
-
-		<!-- Isotope javascript -->
+    <!-- Isotope javascript -->
 		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
 
 		<!-- Backstretch javascript -->

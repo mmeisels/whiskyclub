@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  
   def self.from_omniauth(auth)
 
     where(auth.slice(:provider, :uid).permit!).first_or_initialize.tap do |user|
@@ -13,7 +14,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def rank
-    @rank ||= User.where("ranked_attribute > ?", ranked_attribute).count + 1
-  end
 end

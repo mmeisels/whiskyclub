@@ -6,6 +6,7 @@ FullcalendarAndRailsExample::Application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
+  resources :charges
 
   root 'home#show'
   resources :events

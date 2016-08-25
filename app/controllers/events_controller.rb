@@ -1,10 +1,16 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
 
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
+  end
+  def index
+    @event = Event.new
+    @top_events = Event.order(clicks: :desc).first(12)
   end
 
   # GET /events/1
@@ -28,6 +34,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        user = User.find_by(uid: current_user.uid)
+        user.sponsorship = user.sponsorship + 1
+        user.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
