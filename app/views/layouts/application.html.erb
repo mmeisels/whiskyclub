@@ -94,8 +94,8 @@
                       <li><a href="#contact">Logout</a></li>
                       <li>Welcome, <%=current_user%></li>
                     <% else%>
-                      <%= link_to "Sign in with Salesforce", "/auth/salesforce", id: "sign_in" %>
-                      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+                      <li><a href="/auth/salesforce"><img src="images/SFCD_logo.png" alt=""></a></li>
+                      <li><a href="/auth/facebook"><img src="images/social_facebook_box_blueLogin.png" alt=""></a></li>
                     <% end %>
                   </ul>
                 </div>
@@ -103,6 +103,7 @@
               </div>
             </nav>
             <!-- navbar end -->
+
           </div>
           <!-- main-navigation end -->
 
