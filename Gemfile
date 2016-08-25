@@ -8,10 +8,19 @@ gem 'rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-
+gem 'resque'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 
+gem 'restforce'
+gem 'omniauth-salesforce'
+gem 'slim-rails'
+gem 'omniauth'
+gem 'omniauth-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
