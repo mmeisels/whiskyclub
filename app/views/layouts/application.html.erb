@@ -94,7 +94,6 @@
                     <li><a href="#clients">Leaderboard</a></li>
                     <% if current_user%>
                       <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-                      <li>Welcome, <%=current_user.name%></li>
                     <% else%>
                       <li><a href="/auth/salesforce"><img src="images/sfdclogo.png" height="50" width="50" alt="Login With Salesforce"></a></li>
                       <li><a href="/auth/facebook"><img src="images/socialfacebookboxblue.png" height="40" width="40" alt="Login With Facebook"></a></li>
@@ -276,7 +275,25 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">1000+ Happy Drinkers</h1>
+						<h1 class="text-center">Drinkers Leaderboard</h1>
+            <ul class="no-bullet" id="rankings">
+              <%= render partial: "rankings", ranked_users: @ranked_users %>
+            </ul>
+            <div>app/views/leaderboard/_rankings.html.haml</div>
+              <% @ranked_users.each do |user|  %>
+              <li class="row" data-rank="<%= user.rank %>" data-user-id="<%= user.id %>" data-value="<%= user.ranked_attribute %>">
+                <%= user.name %>
+                <%= user.rank %>
+              </li>
+            <% end %>
+            <% if @ranked_users.length > 0 %>
+  $("<%= @target%>").append("<%= escape_javascript(render partial: 'rankings', ranked_users: @ranked_users) %>");
+<% end %>
+
+<% if @ranked_users.length < @limit  %>
+  $("<%= @target%>").append("<li class='row'>That's everbody!</li>");
+  $("#show_more_leaderboard").hide();
+<% end %> 
 					</div>
 				</div>
 			</div>

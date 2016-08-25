@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def rank
+    @rank ||= User.where("ranked_attribute > ?", ranked_attribute).count + 1
+  end
 end
