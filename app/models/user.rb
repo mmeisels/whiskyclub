@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :events, dependent: :destroy
-  
+  has_many :microevents, dependent: :destroy
+
   def self.from_omniauth(auth)
 
     where(auth.slice(:provider, :uid).permit!).first_or_initialize.tap do |user|

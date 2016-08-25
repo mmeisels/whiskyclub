@@ -4,5 +4,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:uid])
     @events = @user.events.paginate(page: params[:page])
+    @microevents = @user.microevents.paginate(page: params[:page])
   end
 end

@@ -191,7 +191,7 @@
 									</div>
 									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-1"><%= e1.title %><br><%= e1.start_time %></a>
 								</div>
-								<!-- Modal --> 
+								<!-- Modal -->
 								<div class="modal fade" id="project-1" tabindex="-1" role="dialog" aria-labelledby="project-1-label" aria-hidden="true">
 									<div class="modal-dialog modal-lg">
 										<div class="modal-content">
@@ -277,13 +277,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<h1 class="text-center">Drinkers Leaderboard</h1>
             <div class="col-md-8">
-              <% if @user.events.any? %>
-                <h3>Events (<%= @user.events.count %>)</h3>
-                <ol class="events">
-                  <%= render @events %>
-                </ol>
-                <%= will_paginate @events %>
-              <% end %>
+              <%= microevent.id %>
             </div>
 
 					</div>
