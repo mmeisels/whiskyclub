@@ -22,14 +22,13 @@ ActiveRecord::Schema.define(version: 20150120000924) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  create_table :users do |t|
-    t.string :provider
-    t.string :uid
-    t.string :name
-    t.string :oauth_token
-    t.datetime : oauth_expires_at
-    t.string :refresh_token
-    t.string :instance_url
-    t.timestamps
+  create_table "users", force: true do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string "refresh_token"
+    t.string "instance_url"
   end
 end
