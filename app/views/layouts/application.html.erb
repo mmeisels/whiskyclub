@@ -285,10 +285,6 @@
                 <%= user.rank %>
               </li>
             <% end %>
-            <% if @ranked_users.length > 0 %>
-  $("<%= @target%>").append("<%= escape_javascript(render partial: 'rankings', ranked_users: @ranked_users) %>");
-<% end %>
-
 <% if @ranked_users.length < @limit  %>
   $("<%= @target%>").append("<li class='row'>That's everbody!</li>");
   $("#show_more_leaderboard").hide();
