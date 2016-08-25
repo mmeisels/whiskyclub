@@ -7,7 +7,7 @@ FullcalendarAndRailsExample::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
 
-  root 'events#index'
+  root 'home#show'
   resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.

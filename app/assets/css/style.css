@@ -431,7 +431,7 @@ textarea {
 	font-weight: 300;
 	color: #FFFFFF;
 	text-shadow: none;
-	filter: alpha(opacity=100);
+	/*filter: alpha(opacity=100);*/
 }
 
 /* Large devices (Large desktops 1200px and up) */
