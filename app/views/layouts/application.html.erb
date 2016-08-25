@@ -91,7 +91,7 @@
                     <li><a href="#calendar">Calendar</a></li>
                     <li><a href="#clients">Leaderboard</a></li>
                     <% if current_user%>
-                      <li><a href="#contact">Logout</a></li>
+                      <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
                       <li>Welcome, <%=current_user%></li>
                     <% else%>
                       <li><a href="/auth/salesforce"><img src="images/sfdclogo.png" height="50" width="50" alt="Login With Salesforce"></a></li>
