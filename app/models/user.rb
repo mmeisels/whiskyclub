@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :events, dependent: :destroy
   
   def self.from_omniauth(auth)
 
