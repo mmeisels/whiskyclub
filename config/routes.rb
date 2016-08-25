@@ -1,11 +1,14 @@
 FullcalendarAndRailsExample::Application.routes.draw do
+  get "home/show"
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
+  resources :sessions, only: [:create, :destroy]
+  resource :home, only: [:show]
+
   root 'events#index'
   resources :events
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.refresh_token = auth.credentials.refresh_token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.instance_url = auth.credentials.instance_url
       user.save!
     end

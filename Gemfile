@@ -17,6 +17,9 @@ gem 'omniauth-salesforce'
 gem 'slim-rails'
 gem 'omniauth'
 gem 'omniauth-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
