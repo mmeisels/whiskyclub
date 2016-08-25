@@ -92,7 +92,7 @@
                     <li><a href="#clients">Leaderboard</a></li>
                     <% if current_user%>
                       <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-                      <li>Welcome, <%=current_user%></li>
+                      <li>Welcome, <%=current_user.name%></li>
                     <% else%>
                       <li><a href="/auth/salesforce"><img src="images/sfdclogo.png" height="50" width="50" alt="Login With Salesforce"></a></li>
                       <li><a href="/auth/facebook"><img src="images/socialfacebookboxblue.png" height="40" width="40" alt="Login With Facebook"></a></li>
